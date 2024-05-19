@@ -39,7 +39,6 @@ input, button {
 }
 
 #container {
-    border: 1px solid rgb(45, 131, 243);
     margin-top: 100px;
     flex-direction: column;
 } 
@@ -47,7 +46,7 @@ input, button {
 #title {
     font-size: 60px;
     color: rgb(77, 59, 90);
-    text-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.5);
+    text-shadow: 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 #canvas {
@@ -67,5 +66,5 @@ input, button {
 }
 
 #canvas, button, input {
-    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.3);
 }
