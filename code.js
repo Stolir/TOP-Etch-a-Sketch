@@ -1,12 +1,14 @@
 const canvas = document.querySelector("#canvas");
-const input = document.querySelector("input");
-const btn = document.querySelector("button");
 const canvasStyle = getComputedStyle(canvas);
 let canvasSize = canvasStyle.getPropertyValue("width");
 canvasSize = +(canvasSize.split("p").shift())
 
-console.log(btn.textContent)
+const input = document.querySelector("input");
+
+const btn = document.querySelector("button");
 btn.addEventListener('click', reset);
+
+
 let PixelCount = 16;
 
 function makeGrid(pixelCount) {
@@ -15,13 +17,20 @@ function makeGrid(pixelCount) {
         const pixel = document.createElement("div");
         pixel.classList.add("grid");
         pixel.setAttribute("style", `width:${pixelSize}px; height:${pixelSize}px;`)
+        const pixelStyle = getComputedStyle(pixel)
+        pixel.addEventListener('mouseover', function (e) {
+            let pixelOpacity = pixelStyle.backgroundColor;
+            pixelOpacity = +(pixelOpacity.split(",").pop()).split(")").shift();
+            if (pixelOpacity < 1) {
+                pixel.style.backgroundColor = `rgba(58, 58, 58, ${pixelOpacity + 0.1})`
+            } 
+        })
         canvas.appendChild(pixel);
     }
 }
 
 
 function reset() {
-    console.log("click")
     while (canvas.firstChild) {
         canvas.removeChild(canvas.lastChild)
     }
@@ -29,8 +38,8 @@ function reset() {
         makeGrid(PixelCount);
     }
     else {
-        if (input.value < 16 || input.value > 100) {
-            alert("Please Enter a number ranging from 16 to 100")
+        if (input.value < 16 || input.value > 64) {
+            alert("Please Enter a number ranging from 16 to 64")
             makeGrid();
         }
         else {
