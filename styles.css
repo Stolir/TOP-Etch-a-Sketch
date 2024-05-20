@@ -12,7 +12,7 @@ background-color: rgb(197, 183, 238);
 }
 
 input {
-    width: 260px;
+    width: 360px;
 }
 
 input, button {
@@ -34,8 +34,8 @@ input, button {
 
 .grid {
     border: 1px solid grey;
-    width: 35.5px;
-    height: 35.5px;
+    box-sizing: border-box;
+
 }
 
 #container {
@@ -54,7 +54,7 @@ input, button {
     width: 600px;
     height: 600px;
     flex-direction: row;
-    flex: auto;
+
     border-radius: 5px;
 }
 
